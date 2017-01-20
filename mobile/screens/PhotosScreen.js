@@ -33,9 +33,9 @@ export default class PhotosScreen extends React.Component {
     },
   }
 
-  componentDidMount () {
-    this.takePhoto()
-  }
+  // componentDidMount () {
+  //   this.takePhoto()
+  // }
 
   takePhoto () {
     ImagePicker.launchCameraAsync()
@@ -118,15 +118,15 @@ uploadImageAsync(uri) {
 
   render() {
 
-    // this.takePhoto()
+    this.takePhoto()
 
-    if (this.state.loading) {
-      return (
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <ActivityIndicator size='large' color='white' />
-        </ScrollView>
-      );
-    } else {
+    // if (this.state.loading) {
+    //   return (
+    //     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    //       <ActivityIndicator size='large' color='white' />
+    //     </ScrollView>
+    //   );
+    // } else {
       return (
         <ScrollView
           style={styles.container}
@@ -134,7 +134,7 @@ uploadImageAsync(uri) {
         </ScrollView>
 
       );
-    }
+    // }
   }
 }
 

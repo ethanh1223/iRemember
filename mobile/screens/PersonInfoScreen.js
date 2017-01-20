@@ -50,7 +50,7 @@ export default class PersonInfoScreen extends React.Component {
         </View>
         {audio}
         <View style={styles.photoContainer}>
-          <Image style={styles.personImage} source={{uri: this.props.route.params.person.photo}} /> 
+          <Image source={{uri: this.props.route.params.person.photo}} /> 
         </View>
         <View style={styles.personInfoContainer}>
           <Text style={styles.personInfo}>{this.props.route.params.person.description}</Text>
@@ -88,10 +88,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     flex: 4
-  },
-  personImage: {
-    height: 250,
-    width: 250,
   },
   personName: {
     color: '#FBFBF2',

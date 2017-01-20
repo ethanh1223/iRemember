@@ -221,33 +221,35 @@ export default class RootNavigation extends React.Component {
     NativeModules.ExponentFingerprint.authenticateAsync('Show me your finger!')
     .then((result) => {
       if (result.success) {
+        alert('Sucess!')
         this.setState({fingerprint: true})
       } else {
         alert('Try again!');
+        this.authFunction();
       }
     })
   }
 
   render() {
 
-    if (!this.state.fingerprint || !this.state.authenticated) {
-      return (
-        <StackNavigation
-        defaultRouteConfig={{
-          navigationBar: {
-            backgroundColor: '#FA9581',
-            titleStyle: {
-              // color: '#FBFBF2',
-              fontFamily: 'quicksand-regular',
-              fontSize: 30,
-            },
-            tintColor: '#FBFBF2'
-          }
-        }} 
-        initialRoute={Router.getRoute('login', {authFunction: this.authFunction, state:this.state, handleTextChange: this.handleTextChange, handleTextSubmit: this.handleTextSubmit})}/>
-          // initialRoute='login' />
-      )
-    } else {
+    // if (!this.state.fingerprint || !this.state.authenticated) {
+    //   return (
+    //     <StackNavigation
+    //     defaultRouteConfig={{
+    //       navigationBar: {
+    //         backgroundColor: '#FA9581',
+    //         titleStyle: {
+    //           // color: '#FBFBF2',
+    //           fontFamily: 'quicksand-regular',
+    //           fontSize: 30,
+    //         },
+    //         tintColor: '#FBFBF2'
+    //       }
+    //     }} 
+    //     initialRoute={Router.getRoute('login', {authFunction: this.authFunction, state:this.state, handleTextChange: this.handleTextChange, handleTextSubmit: this.handleTextSubmit})}/>
+    //       // initialRoute='login' />
+    //   )
+    // } else {
       return (
         <TabNavigation
           // tabBarColor='#9EBDFF'
@@ -320,7 +322,7 @@ export default class RootNavigation extends React.Component {
         </TabNavigation>
       );
 
-    }
+    // }
   }
 
   _renderIcon(name, isSelected) {
